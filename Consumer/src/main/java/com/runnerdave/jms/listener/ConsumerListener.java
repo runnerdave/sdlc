@@ -1,5 +1,7 @@
 package com.runnerdave.jms.listener;
 
+import java.net.UnknownHostException;
+
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
@@ -36,7 +38,13 @@ public class ConsumerListener implements MessageListener {
 			} catch (JMSException e) {
 				logger.error("message: " + json);
 				jmsTemplate.convertAndSend(json);
-			}
+			} catch (UnknownHostException e) {
+				logger.error("message: " + json);
+				jmsTemplate.convertAndSend(json);
+			} catch (Exception e) {
+				logger.error("message: " + json);
+				jmsTemplate.convertAndSend(json);
+			} 
 		}
 		
 	}
