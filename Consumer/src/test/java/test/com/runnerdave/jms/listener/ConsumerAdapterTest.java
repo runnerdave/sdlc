@@ -1,6 +1,6 @@
-package com.runnerdave.jms.listener;
+package test.com.runnerdave.jms.listener;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 import java.net.UnknownHostException;
 
@@ -11,7 +11,7 @@ import org.junit.Test;
 import com.runnerdave.jms.adapter.ConsumerAdapter;
 
 public class ConsumerAdapterTest {
-	
+
 	private String json = "{vendorName:\"Microsofttest\",firstName:\"BobTest\",lastName:\"SmithTest\",address:\"123 Main test\",city:\"TulsaTest\",state:\"OKTest\",zip:\"71345Test\",email:\"Bob@microsoft.test\",phoneNumber:\"test-123-test\"}";
 
 	@Before
