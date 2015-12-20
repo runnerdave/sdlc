@@ -6,17 +6,6 @@ public class Vendor {
 	private String lastName;
 	private String address;
 	private String city;
-
-	
-
-	@Override
-	public String toString() {
-		return "Vendor [getVendorName()=" + getVendorName() + ", getFirstName()=" + getFirstName() + ", getLastName()="
-				+ getLastName() + ", getAddress()=" + getAddress() + ", getCity()=" + getCity() + ", getState()="
-				+ getState() + ", getZipCode()=" + getZipCode() + ", getPhoneNumber()=" + getPhoneNumber()
-				+ ", getEmail()=" + getEmail() + "]";
-	}
-
 	private String state;
 	private String zipCode;
 	private String phoneNumber;
@@ -92,6 +81,14 @@ public class Vendor {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	@Override
+	public String toString() {
+		return "Vendor [getVendorName()=" + getVendorName() + ", getFirstName()=" + getFirstName() + ", getLastName()="
+				+ getLastName() + ", getAddress()=" + getAddress() + ", getCity()=" + getCity() + ", getState()="
+				+ getState() + ", getZipCode()=" + getZipCode() + ", getPhoneNumber()=" + getPhoneNumber()
+				+ ", getEmail()=" + getEmail() + "]";
 	}
 
 }
