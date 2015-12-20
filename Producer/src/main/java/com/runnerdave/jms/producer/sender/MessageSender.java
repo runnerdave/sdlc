@@ -17,8 +17,9 @@ public class MessageSender {
 	public void send(String json) {
 		try {
 			jmsTemplate.convertAndSend(json);
-			logger.info("message sent");
+			logger.info("messagre sent");
 		} catch (JmsException e) {
+			logger.error(e.getMessage());
 			logger.error("Message: " + json);
 		}
 		

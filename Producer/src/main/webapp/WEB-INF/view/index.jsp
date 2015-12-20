@@ -11,15 +11,22 @@
 <meta charset="utf-8">
 <title>Vendor Entry</title>
 
-<link rel="stylesheet" href="<c:url value='/css/style.css'/>"/>
+<link rel="stylesheet" href="<c:url value='/css/style.css'/>" />
 </head>
 <body>
-	<div><img alt="Vendor Entry" src="<c:url value='/images/logo.jpg'/>"></div>
+	<div>
+		<img alt="Vendor Entry" src="<c:url value='/images/logo.jpg'/>">
+	</div>
 	<div>
 		<h2>Vendor Entry</h2>
 	</div>
 	<div id="form">
 		<form:form modelAttribute="vendor" action="vendor">
+			<div class="message">
+				<c:if test="${!empty message}">
+					<c:out value="${message}"></c:out>
+				</c:if>
+			</div>
 			<fieldset>
 				<legend>Vendor Information</legend>
 				<div>
@@ -44,7 +51,10 @@
 				</div>
 				<div>
 					<label for="state">State</label>
-					<form:input path="state" />
+					<form:select path="state">
+						<form:option value="Miranda">Miranda</form:option>
+						<form:option value="DF">DF</form:option>
+					</form:select>
 				</div>
 				<div>
 					<label for="zipCode">Zip code</label>
@@ -61,7 +71,7 @@
 				<div>
 					<input type="submit" value="submit">
 				</div>
-				
+
 			</fieldset>
 		</form:form>
 	</div>

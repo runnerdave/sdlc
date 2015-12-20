@@ -15,7 +15,7 @@
 
 
 	<bean id="connFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
-		<property name="brokerURL" value="http://localhost:61616"></property>
+		<property name="brokerURL" value="tcp://localhost:61616"></property>
 	</bean>
 	<bean id="consumerListener" class="com.runnerdave.jms.listener.ConsumerListener">
 	</bean>

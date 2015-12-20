@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.1.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
@@ -14,12 +17,12 @@
 
 
 
-	<bean id="connFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+	<!-- bean id="connFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
 		<property name="brokerURL" value="tcp://localhost:61616"></property>
 	</bean>
 	<bean id="defaultDestination" class="org.apache.activemq.command.ActiveMQQueue">
 		<constructor-arg value="CONSUMER.QUEUE"></constructor-arg>
-	</bean>
+	</bean> -->
 	<bean id="JMSTemplate" class="org.springframework.jms.core.JmsTemplate">
 		<property name="connectionFactory" ref="connFactory"></property>
 		<property name="defaultDestination" ref="defaultDestination"></property>
@@ -32,5 +35,11 @@
 	</bean>
 	<mvc:resources location="/css/" mapping="/css/**"></mvc:resources>
 	<mvc:resources location="/images/" mapping="/images/**"></mvc:resources>
+	
+	<jee:jndi-lookup jndi-name="java:comp/env/jms/MongoCF"
+		id="connFactory" />
+
+	<jee:jndi-lookup jndi-name="java:comp/env/jms/ConsumerQ"
+		id="defaultDestination" />
 
 </beans>
